@@ -21,6 +21,7 @@ public class Vital
     #endregion
 
     #region Methods
+    /*
     public int check_in_range(float val)
     {
         // it checks if the value provided is in rage of the vital 
@@ -41,6 +42,15 @@ public class Vital
         {
             return 1;
         }
+    }
+    */
+    public bool isOk(float val)
+    {
+        if (val >= lower_limit && val <= upper_limit)
+        {
+            return true;
+        }
+        return false;
     }
     #endregion
 }
@@ -76,11 +86,14 @@ class Checker
     {
         name = name.ToUpper();
         Vital vit = dict.getVital(name);
+        /*
         if (vit.check_in_range(test_val) == 0)
         {
             return true;
         }
         return false;
+        */
+        return vit.isOk(test_val);
     }
 
     static void ExpectTrue(bool expression) {
